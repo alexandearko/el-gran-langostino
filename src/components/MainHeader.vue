@@ -22,7 +22,11 @@ export default {
 .main-header {
   height: 55px;
   width: 100%;
+  background-color: #fff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.08);
+  position: absolute;
+  top: 0;
+  z-index: 99;
 }
 .logo {
   width: 184px;
