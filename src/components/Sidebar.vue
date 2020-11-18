@@ -9,10 +9,57 @@
     <div class="subtitle">
       Inspirados en la cocina tradicional del pacífico y sus raíces africanas
     </div>
+    <nav>
+      <div v-for="button in buttons" :key="button.id">
+        <side-button
+          :text="button.text"
+          :active="button.active"
+          @click="toogleNavs(button.id)"
+        />
+      </div>
+    </nav>
   </div>
 </template>
 <script>
-export default {};
+import SideButton from "./SideButton";
+export default {
+  components: {
+    SideButton,
+  },
+  data() {
+    return {
+      buttons: [
+        {
+          id: 0,
+          text: "Entradas",
+          active: true,
+        },
+        {
+          id: 1,
+          text: "Fuertes",
+          active: false,
+        },
+        {
+          id: 2,
+          text: "Sushi",
+          active: false,
+        },
+      ],
+    };
+  },
+  methods: {
+    toogleNavs(id) {
+      for (let index = 0; index < this.buttons.length; index++) {
+        if (index == id) {
+          this.buttons[index].active = true
+        }
+        else {
+          this.buttons[index].active = false
+        }
+      }
+    },
+  },
+};
 </script>
 <style scoped>
 .sidebar {
@@ -52,5 +99,9 @@ export default {};
   line-height: 21px;
   text-align: center;
   width: 150px;
+}
+nav {
+  margin-top: 30px;
+  width: 100%;
 }
 </style>
