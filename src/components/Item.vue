@@ -6,26 +6,38 @@
     <div class="info d-flex flex-column justify-content-between">
       <div>
         <div class="title">
-          {{name}}
+          {{ name }}
         </div>
         <p>Anillos de Calamar tempurados en Panko con el toque de la...</p>
       </div>
       <div class="d-flex justify-content-between">
-        <div>
-          ${{price}}
-        </div>
-        <button class="d-flex justify-content-center align-items-center">
+        <div>${{ price }}</div>
+        <button
+          class="d-flex justify-content-center align-items-center"
+          @click="addToCart"
+        >
           Agregar
         </button>
       </div>
     </div>
-    <div class="line position-absolute">
-    </div>
+    <div class="line position-absolute"></div>
   </div>
 </template>
 <script>
 export default {
-  props: ["name", "price", "image"]
+  props: ["name", "price", "image"],
+  methods: {
+    getInfo() {
+      return {
+        name: this.name,
+        price: this.price,
+        image: this.image,
+      };
+    },
+    addToCart() {
+      this.$store.commit('addToCart', this.getInfo());
+    },
+  },
 };
 </script>
 <style scoped>

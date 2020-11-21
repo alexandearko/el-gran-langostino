@@ -3,8 +3,9 @@
     <div class="logo d-flex justify-content-center">
       <logo />
     </div>
-    <button>
+    <button @click="openCart">
       <cart />
+      <span v-if="getProductsCount > 0" class="badge badge-pill badge-danger">{{getProductsCount}}</span>
     </button>
   </div>
 </template>
@@ -16,6 +17,16 @@ export default {
     logo,
     cart,
   },
+  computed: {
+    getProductsCount() {
+      return this.$store.getters.getProductsCount;
+    },
+  },
+  methods: {
+    openCart() {
+      window.$('#myModal').modal('show')
+    }
+  }
 };
 </script>
 <style scoped>

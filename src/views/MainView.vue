@@ -6,25 +6,25 @@
       <div class="title">Carnes</div>
       <div class="d-flex flex-wrap">
         <div v-for="item in grill_meat" :key="item.id">
-          <item :name="item.name" :price="item.name" :image="item.image" />
+          <item :name="item.name" :price="item.price" :image="item.image" />
         </div>
       </div>
       <div class="title">Hamburguesas</div>
       <div class="d-flex flex-wrap">
         <div v-for="item in hamburgers" :key="item.id">
-          <item :name="item.name" :price="item.name" :image="item.image" />
+          <item :name="item.name" :price="item.price" :image="item.image" />
         </div>
       </div>
       <div class="title">Ensaladas</div>
       <div class="d-flex flex-wrap">
         <div v-for="item in salads" :key="item.id">
-          <item :name="item.name" :price="item.name" :image="item.image" />
+          <item :name="item.name" :price="item.price" :image="item.image" />
         </div>
       </div>
       <div class="title">Sodas</div>
       <div class="d-flex flex-wrap">
         <div v-for="item in sodas" :key="item.id">
-          <item :name="item.name" :price="item.name" :image="item.image" />
+          <item :name="item.name" :price="item.price" :image="item.image" />
         </div>
       </div>
     </body>

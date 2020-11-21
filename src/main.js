@@ -8,5 +8,6 @@ import VueAxios from "vue-axios";
 import store from "./store";
 
 createApp(App)
-  .use(VueAxios, axios, store)
+  .use(store)
+  .use(VueAxios, axios)
   .mount("#app");
