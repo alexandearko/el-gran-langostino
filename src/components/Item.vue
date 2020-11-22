@@ -1,5 +1,13 @@
 <template>
   <div class="item d-flex position-relative">
+    <button
+      @click="deleteThis"
+      v-if="v4"
+      type="button"
+      class="close position-absolute"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
     <div class="img d-flex justify-content-center align-items-center">
       <img :src="image" alt="" />
     </div>
@@ -13,7 +21,8 @@
       <div class="d-flex justify-content-between">
         <div>${{ price }}</div>
         <button
-          class="d-flex justify-content-center align-items-center"
+          v-if="!v4"
+          class="add d-flex justify-content-center align-items-center"
           @click="addToCart"
         >
           Agregar
@@ -24,18 +33,23 @@
   </div>
 </template>
 <script>
+import { uuid } from "vue-uuid";
 export default {
-  props: ["name", "price", "image"],
+  props: ["name", "price", "image", "v4"],
   methods: {
     getInfo() {
       return {
+        v4: uuid.v4(),
         name: this.name,
         price: this.price,
         image: this.image,
       };
     },
     addToCart() {
-      this.$store.commit('addToCart', this.getInfo());
+      this.$store.commit("addToCart", this.getInfo());
+    },
+    deleteThis() {
+      this.$store.commit("deleteProduct", this.v4);
     },
   },
 };
@@ -66,7 +80,7 @@ img {
 p {
   font-size: 12px;
 }
-button {
+.add {
   font-weight: bold;
   font-size: 14px;
   height: 30px;
@@ -81,5 +95,9 @@ button {
   width: 100%;
   background-color: #e0e0e0;
   bottom: -30px;
+}
+.close {
+  top: -5px;
+  right: 0;
 }
 </style>

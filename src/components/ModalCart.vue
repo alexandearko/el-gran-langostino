@@ -16,7 +16,7 @@
         <div class="modal-body d-flex">
           <div>
             <div v-for="(item, index) in getProducts" :key="index">
-              <item :name="item.name" :price="item.price" :image="item.image" />
+              <item :name="item.name" :price="item.price" :image="item.image" :v4="item.v4" />
             </div>
           </div>
           <div class="payment">
