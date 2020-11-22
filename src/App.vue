@@ -17,6 +17,9 @@ export default {
     MainView,
     ModalCart,
   },
+  beforeCreate() {
+    this.$store.commit("initialiseStore");
+  },
 };
 </script>
 
