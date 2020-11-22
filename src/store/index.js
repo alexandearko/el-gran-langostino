@@ -27,7 +27,7 @@ export default createStore({
       state.products.splice(pos, 1);
     },
     initialiseStore() {
-      console.log(localStorage.getItem('products'))
+      console.log(localStorage)
     }
   },
   actions: {},
