@@ -25,6 +25,9 @@ button:hover {
 .active {
   color: #e94a47;
 }
+button:active {
+  background-color: rgb(230, 230, 230);
+}
 button:focus {
   outline: none;
 }
@@ -38,6 +41,9 @@ button:focus {
   left: 0;
 }
 @media only screen and (max-width: 576px) {
+  button {
+    height: 40px;
+  }
   .mark {
     height: 2px;
     width: 100%;

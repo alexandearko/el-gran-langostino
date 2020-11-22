@@ -9,6 +9,7 @@
     <div class="subtitle">
       Inspirados en la cocina tradicional del pacífico y sus raíces africanas
     </div>
+    <search-bar />
     <nav>
       <div class="container-fluid p-0" v-for="button in buttons" :key="button.id">
         <side-button
@@ -22,9 +23,11 @@
 </template>
 <script>
 import SideButton from "./SideButton";
+import SearchBar from "./SearchBar"
 export default {
   components: {
     SideButton,
+    SearchBar
   },
   data() {
     return {
@@ -58,10 +61,12 @@ export default {
       }
     },
   },
+  
 };
 </script>
 <style scoped>
 .sidebar {
+  width: 100%;
   color: #3e3e3e;
   height: 100vh;
   width: 184px;
@@ -115,12 +120,13 @@ nav {
 @media only screen and (max-width: 576px) {
   .avatar {
     margin-top: 0px;
+    height: 85px;
     min-height: 85px;
     max-width: 85px;
   }
   .sidebar {
     width: 100vw;
-    height: 300px;
+    height: auto;
     position: relative;
   }
   .title,
@@ -133,6 +139,7 @@ nav {
   }
   nav {
     display: flex;
+    margin-top: 0;
   }
 }
 </style>

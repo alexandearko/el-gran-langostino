@@ -62,13 +62,13 @@ export default {
   margin: 30px;
 }
 .img {
-  width: 85px;
+  width: 100px;
   border-radius: 5px;
   height: 100%;
 }
 img {
-  height: 85px;
-  width: 85px;
+  height: 100px;
+  width: 100px;
 }
 .info {
   padding-left: 16px;

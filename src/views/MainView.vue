@@ -91,7 +91,7 @@ body {
     padding: 0;
   }
   .title {
-    margin: 20px 0 0 20px;
+    margin: 10px 0 0 20px;
   }
 }
 </style>
