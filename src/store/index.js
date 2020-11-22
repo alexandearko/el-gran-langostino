@@ -16,6 +16,7 @@ export default createStore({
     addToCart(state, payload) {
       state.products.push(payload);
       console.log(state.products);
+      this.commit("setInStorage")
     },
     deleteProduct(state, payload) {
       let pos;
@@ -25,10 +26,15 @@ export default createStore({
         }
       }
       state.products.splice(pos, 1);
+      this.commit("setInStorage")
+    },
+    setInStorage(state) {
+      console.log("guardado");
+      localStorage.setItem("products", state.products);
     },
     initialiseStore() {
-      console.log(localStorage)
-    }
+      console.log(localStorage);
+    },
   },
   actions: {},
   modules: {},
