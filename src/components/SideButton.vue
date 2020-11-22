@@ -1,6 +1,6 @@
 <template>
   <button :class="active ? 'active' : ''">
-    {{text}}
+    {{ text }}
     <div v-if="active" class="mark"></div>
   </button>
 </template>
@@ -32,8 +32,16 @@ button:focus {
   position: absolute;
   height: 48px;
   width: 4px;
+  padding: 0;
   background-color: #e94a47;
   top: 0;
   left: 0;
+}
+@media only screen and (max-width: 576px) {
+  .mark {
+    height: 2px;
+    width: 100%;
+    top: 100%;
+  }
 }
 </style>

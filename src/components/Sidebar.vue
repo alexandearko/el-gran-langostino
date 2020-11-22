@@ -10,7 +10,7 @@
       Inspirados en la cocina tradicional del pacífico y sus raíces africanas
     </div>
     <nav>
-      <div v-for="button in buttons" :key="button.id">
+      <div class="container-fluid p-0" v-for="button in buttons" :key="button.id">
         <side-button
           :text="button.text"
           :active="button.active"
@@ -51,10 +51,9 @@ export default {
     toogleNavs(id) {
       for (let index = 0; index < this.buttons.length; index++) {
         if (index == id) {
-          this.buttons[index].active = true
-        }
-        else {
-          this.buttons[index].active = false
+          this.buttons[index].active = true;
+        } else {
+          this.buttons[index].active = false;
         }
       }
     },
@@ -103,5 +102,37 @@ export default {
 nav {
   margin-top: 30px;
   width: 100%;
+}
+@media only screen and (max-height: 640px) {
+  .avatar {
+    min-height: 85px;
+    max-width: 85px;
+  }
+  .title {
+    margin-top: 12px;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .avatar {
+    margin-top: 0px;
+    min-height: 85px;
+    max-width: 85px;
+  }
+  .sidebar {
+    width: 100vw;
+    height: 300px;
+    position: relative;
+  }
+  .title,
+  .subtitle {
+    width: 278px;
+    margin-top: 10px;
+  }
+  .subtitle {
+    margin-top: 0;
+  }
+  nav {
+    display: flex;
+  }
 }
 </style>

@@ -86,4 +86,12 @@ body {
   font-size: 18px;
   margin-top: 30px;
 }
+@media only screen and (max-width: 576px) {
+  body {
+    padding: 0;
+  }
+  .title {
+    margin: 20px 0 0 20px;
+  }
+}
 </style>

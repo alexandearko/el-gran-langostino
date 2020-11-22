@@ -57,7 +57,7 @@ export default {
 <style scoped>
 .item {
   width: 100%;
-  max-width: 364px;
+  max-width: 300px;
   height: 100px;
   margin: 30px;
 }
@@ -99,5 +99,10 @@ p {
 .close {
   top: -5px;
   right: 0;
+}
+@media only screen and (max-width: 576px) {
+  .item {
+    margin: 20px;
+  }
 }
 </style>

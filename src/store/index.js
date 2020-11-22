@@ -29,11 +29,14 @@ export default createStore({
       this.commit("setInStorage");
     },
     setInStorage(state) {
-      console.log("guardado");
-      localStorage.setItem("products", state.products);
+      localStorage.setItem("products", JSON.stringify(state.products));
     },
     initialiseStore(state) {
-      state.products = localStorage.products;
+      console.log(localStorage.getItem("products"));
+      if (localStorage.getItem("products") != null) {
+        var products = JSON.parse(localStorage.getItem("products"));
+        state.products = products;
+      }
     },
   },
   actions: {},

@@ -31,7 +31,7 @@ export default {
 </script>
 <style scoped>
 .main-header {
-  height: 55px;
+  height: 45px;
   width: 100%;
   background-color: #fff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.08);
@@ -46,5 +46,12 @@ button {
   background-color: transparent;
   border: none;
   margin-right: 20px;
+}
+@media only screen and (max-width: 576px) {
+  .logo {
+    display: block !important;
+    margin-left: 20px;
+
+  }
 }
 </style>
