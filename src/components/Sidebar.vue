@@ -9,7 +9,16 @@
     <div class="subtitle">
       Inspirados en la cocina tradicional del pacífico y sus raíces africanas
     </div>
-    <search-bar />
+    <div class="input position-relative">
+      <input
+        type="text"
+        placeholder="Buscar"
+        v-model="text"
+        @input="filterByText"
+      />
+      <icon class="icon position-absolute" />
+    </div>
+    <!-- <search-bar :buscar="filterBy" :currentId="currentId" /> -->
     <nav>
       <div
         class="container-fluid p-0"
@@ -27,11 +36,13 @@
 </template>
 <script>
 import SideButton from "./SideButton";
-import SearchBar from "./SearchBar";
+import icon from "./search";
+// import SearchBar from "./SearchBar";
 export default {
   components: {
     SideButton,
-    SearchBar,
+    icon
+    // SearchBar,
   },
   data() {
     return {
@@ -62,10 +73,12 @@ export default {
           active: false,
         },
       ],
+      currentId: 0,
+      text: ""
     };
   },
   created() {
-    this.filterBy(0)
+    this.filterBy(this.currentId);
   },
   methods: {
     toogleNavs(id) {
@@ -76,11 +89,17 @@ export default {
           this.buttons[index].active = false;
         }
       }
-      this.filterBy(id)
+      this.filterBy(id);
     },
     filterBy(id) {
-      this.$store.commit("filterBy", id)
+      this.currentId = id;
+      this.$store.commit("filterBy", id);
+      this.$store.commit("filterByText", this.text)
     },
+    filterByText() {
+      this.$store.commit("filterBy", this.currentId);
+      this.$store.commit("filterByText", this.text)
+    }
   },
 };
 </script>
@@ -127,6 +146,21 @@ export default {
 nav {
   margin-top: 10px;
   width: 100%;
+}
+.input {
+  width: 100%;
+  padding: 10px 20px;
+}
+input {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #f2f2f2;
+  border-radius: 5px;
+  padding-left: 40px;
+}
+.icon {
+  top: 20px;
+  left: 30px;
 }
 @media only screen and (max-height: 640px) {
   .avatar {

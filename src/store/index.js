@@ -83,7 +83,6 @@ export default createStore({
       }
     },
     filterByText(state, payload) {
-      state.productsFiltered = state.allProducts;
       if (payload == "") {
         return;
       } else {

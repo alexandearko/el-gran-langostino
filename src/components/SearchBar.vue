@@ -1,6 +1,6 @@
 <template>
   <div class="input position-relative">
-    <input type="text" placeholder="Buscar" v-model="text" @input="filterBy"/>
+    <input type="text" placeholder="Buscar" v-model="text" @input="buscar(currentId)" />
     <icon class="icon position-absolute" />
   </div>
 </template>
@@ -10,6 +10,7 @@ export default {
   components: {
     icon,
   },
+  props: ["buscar", "currentId"],
   data() {
     return {
       text: ""
