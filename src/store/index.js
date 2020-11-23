@@ -82,9 +82,21 @@ export default createStore({
           break;
       }
     },
+    filterByText(state, payload) {
+      state.productsFiltered = state.allProducts;
+      if (payload == "") {
+        return;
+      } else {
+        payload = payload.toLowerCase();
+
+        state.productsFiltered = state.productsFiltered.filter((product) => {
+          return product.name.toLowerCase().indexOf(payload) > -1;
+        });
+      }
+    },
     menuOption(state, payload) {
       state.menuOption = payload;
-      console.log(state.menuOption)
+      console.log(state.menuOption);
     },
     addToCart(state, payload) {
       state.products.push(payload);

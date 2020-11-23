@@ -1,6 +1,6 @@
 <template>
   <div class="input position-relative">
-    <input type="text" placeholder="Buscar" />
+    <input type="text" placeholder="Buscar" v-model="text" @input="filterBy"/>
     <icon class="icon position-absolute" />
   </div>
 </template>
@@ -10,6 +10,16 @@ export default {
   components: {
     icon,
   },
+  data() {
+    return {
+      text: ""
+    }
+  },
+  methods: {
+    filterBy() {
+      this.$store.commit("filterByText", this.text)
+    }
+  }
 };
 </script>
 <style scoped>

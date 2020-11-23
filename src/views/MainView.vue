@@ -60,7 +60,6 @@ export default {
     };
   },
   created() {
-    // this.getMenu();
     this.$store.dispatch("fetchProducts");
   },
   computed: {
@@ -70,17 +69,6 @@ export default {
     menuOption() {
       return this.$store.getters.getMenuOption;
     },
-  },
-  methods: {
-    // async getMenu() {
-    //   const res = await this.axios.get(
-    //     "https://nelkir-frontend.s3.amazonaws.com/categories_product_food.json"
-    //   );
-    //   this.grill_meat = res.data.categories.grill_meat.products;
-    //   this.hamburgers = res.data.categories.hamburgers.products;
-    //   this.salads = res.data.categories.salads.products;
-    //   this.sodas = res.data.categories.sodas.products;
-    // },
   },
 };
 </script>
