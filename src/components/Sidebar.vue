@@ -18,7 +18,6 @@
       />
       <icon class="icon position-absolute" />
     </div>
-    <!-- <search-bar :buscar="filterBy" :currentId="currentId" /> -->
     <nav>
       <div
         class="container-fluid p-0"
@@ -37,12 +36,10 @@
 <script>
 import SideButton from "./SideButton";
 import icon from "./search";
-// import SearchBar from "./SearchBar";
 export default {
   components: {
     SideButton,
     icon
-    // SearchBar,
   },
   data() {
     return {

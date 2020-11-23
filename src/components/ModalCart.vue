@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Modal title</h5>
+          <h5 class="modal-title">El Gran Langostino</h5>
           <button
             type="button"
             class="close"
@@ -13,10 +13,11 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body d-flex">
+        <div class="modal-body d-flex justify-content-center">
           <div>
             <div v-for="(item, index) in getProducts" :key="index">
               <item
+                class="mb-5"
                 :name="item.name"
                 :price="item.price"
                 :image="item.image"
@@ -24,40 +25,39 @@
               />
             </div>
           </div>
-          <div class="payment">
-            <div class="title">
-              Cuenta
-            </div>
-            <div>
-              <div v-for="(item, index) in getProducts" :key="index">
-                <div class="text d-flex justify-content-between">
-                  <div>
-                    {{ item.name }}
+          <div>
+            <div class="payment">
+              <div class="title">
+                Cuenta
+              </div>
+              <div>
+                <div v-for="(item, index) in getProducts" :key="index">
+                  <div class="text d-flex justify-content-between">
+                    <div>
+                      {{ item.name }}
+                    </div>
+                    <div>${{ item.price }}</div>
                   </div>
-                  <div>${{ item.price }}</div>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <div class="text">
+                    Propina
+                  </div>
+                  <div class="text">${{ propina }}</div>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-between">
+                  <div class="text">
+                    TOTAL
+                  </div>
+                  <div class="text">${{ totalMount }}</div>
                 </div>
               </div>
-              <div class="d-flex justify-content-between">
-                <div class="text">
-                  Propina
-                </div>
-                <div class="text">${{ propina }}</div>
-              </div>
-              <hr>
-              <div class="d-flex justify-content-between">
-                <div class="text">
-                  TOTAL
-                </div>
-                <div class="text">${{ totalMount }}</div>
-              </div>
+              <button class="payment-button">
+                Ordenar y Pagar
+              </button>
             </div>
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">
-            Close
-          </button>
-          <button type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>
@@ -101,5 +101,31 @@ export default {
 }
 .text {
   margin-top: 5px;
+}
+.payment-button {
+  margin-top: 10px;
+  width: 100%;
+  height: 55px;
+  color: white;
+  background-color: #02c874;
+  border-radius: 5px;
+  border: none;
+}
+@media only screen and (max-width: 991px) {
+  .modal-dialog {
+    max-width: 95%;
+  }
+}
+@media only screen and (max-width: 854px) {
+  .payment {
+    width: auto;
+  }
+}
+@media only screen and (max-width: 672px) {
+  .modal-body {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
 }
 </style>

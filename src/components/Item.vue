@@ -105,4 +105,9 @@ p {
     margin: 20px;
   }
 }
+@media only screen and (max-width: 425px) {
+  .item {
+    max-width: 90%;
+  }
+}
 </style>
