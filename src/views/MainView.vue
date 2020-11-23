@@ -3,7 +3,17 @@
     <main-header />
     <sidebar />
     <body>
-      <div class="title">Carnes</div>
+      <div class="title">{{ menuOption }}</div>
+      <div class="d-flex flex-wrap">
+        <div v-for="product in products" :key="product.uuid">
+          <item
+            :name="product.name"
+            :price="product.price"
+            :image="product.image"
+          />
+        </div>
+      </div>
+      <!-- <div class="title">Carnes</div>
       <div class="d-flex flex-wrap">
         <div v-for="item in grill_meat" :key="item.id">
           <item :name="item.name" :price="item.price" :image="item.image" />
@@ -26,7 +36,7 @@
         <div v-for="item in sodas" :key="item.id">
           <item :name="item.name" :price="item.price" :image="item.image" />
         </div>
-      </div>
+      </div> -->
     </body>
   </div>
 </template>
@@ -51,7 +61,15 @@ export default {
   },
   created() {
     // this.getMenu();
-    this.$store.dispatch("fetchProducts")
+    this.$store.dispatch("fetchProducts");
+  },
+  computed: {
+    products() {
+      return this.$store.getters.getAllProducts;
+    },
+    menuOption() {
+      return this.$store.getters.getMenuOption;
+    },
   },
   methods: {
     // async getMenu() {

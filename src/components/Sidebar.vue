@@ -11,7 +11,11 @@
     </div>
     <search-bar />
     <nav>
-      <div class="container-fluid p-0" v-for="button in buttons" :key="button.id">
+      <div
+        class="container-fluid p-0"
+        v-for="button in buttons"
+        :key="button.id"
+      >
         <side-button
           :text="button.text"
           :active="button.active"
@@ -23,32 +27,45 @@
 </template>
 <script>
 import SideButton from "./SideButton";
-import SearchBar from "./SearchBar"
+import SearchBar from "./SearchBar";
 export default {
   components: {
     SideButton,
-    SearchBar
+    SearchBar,
   },
   data() {
     return {
       buttons: [
         {
           id: 0,
-          text: "Entradas",
+          text: "Todos",
           active: true,
         },
         {
           id: 1,
-          text: "Fuertes",
+          text: "Carnes",
           active: false,
         },
         {
           id: 2,
-          text: "Sushi",
+          text: "Hamburguesas",
+          active: false,
+        },
+        {
+          id: 3,
+          text: "Ensaladas",
+          active: false,
+        },
+        {
+          id: 4,
+          text: "Sodas",
           active: false,
         },
       ],
     };
+  },
+  created() {
+    this.filterBy(0)
   },
   methods: {
     toogleNavs(id) {
@@ -59,29 +76,32 @@ export default {
           this.buttons[index].active = false;
         }
       }
+      this.filterBy(id)
+    },
+    filterBy(id) {
+      this.$store.commit("filterBy", id)
     },
   },
-  
 };
 </script>
 <style scoped>
 .sidebar {
   width: 100%;
   color: #3e3e3e;
-  height: 100vh;
+  height: auto;
   width: 184px;
   background-color: #fff;
   position: absolute;
   top: 0;
   left: 0;
   z-index: 98;
-  padding-top: 55px;
+  padding-top: 45px;
   box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.05);
 }
 .avatar {
   height: 150px;
   width: 150px;
-  margin-top: 30px;
+  margin-top: 10px;
   border-radius: 100%;
   background: #ffffff;
   border: 1px solid #e0e0e0;
@@ -89,7 +109,7 @@ export default {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.08);
 }
 .title {
-  margin-top: 30px;
+  margin-top: 10px;
   font-weight: bold;
   font-size: 20px;
   line-height: 26px;
@@ -105,7 +125,7 @@ export default {
   width: 150px;
 }
 nav {
-  margin-top: 30px;
+  margin-top: 10px;
   width: 100%;
 }
 @media only screen and (max-height: 640px) {

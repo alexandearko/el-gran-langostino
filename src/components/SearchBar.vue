@@ -1,6 +1,6 @@
 <template>
   <div class="input position-relative">
-    <input type="text" placeholder="Busca un producto" />
+    <input type="text" placeholder="Buscar" />
     <icon class="icon position-absolute" />
   </div>
 </template>
