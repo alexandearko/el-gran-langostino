@@ -50,24 +50,19 @@ export default {
     };
   },
   created() {
-    this.getMenu();
+    // this.getMenu();
+    this.$store.dispatch("fetchProducts")
   },
   methods: {
-    async getMenu() {
-      const axiosInstance = this.axios.create({
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-        },
-      });
-      const res = await axiosInstance.get(
-        "https://nelkir-frontend.s3.amazonaws.com/categories_product_food.json",
-        { crossdomain: true }
-      );
-      this.grill_meat = res.data.categories.grill_meat.products;
-      this.hamburgers = res.data.categories.hamburgers.products;
-      this.salads = res.data.categories.salads.products;
-      this.sodas = res.data.categories.sodas.products;
-    },
+    // async getMenu() {
+    //   const res = await this.axios.get(
+    //     "https://nelkir-frontend.s3.amazonaws.com/categories_product_food.json"
+    //   );
+    //   this.grill_meat = res.data.categories.grill_meat.products;
+    //   this.hamburgers = res.data.categories.hamburgers.products;
+    //   this.salads = res.data.categories.salads.products;
+    //   this.sodas = res.data.categories.sodas.products;
+    // },
   },
 };
 </script>

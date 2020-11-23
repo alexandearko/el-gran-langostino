@@ -1,10 +1,15 @@
 import { createStore } from "vuex";
+import axios from "axios";
 
 export default createStore({
   state: {
+    allProducts: [],
     products: [],
   },
   getters: {
+    getAllProducts(state) {
+      return state.allProducts;
+    },
     getProducts: (state) => {
       return state.products;
     },
@@ -13,6 +18,9 @@ export default createStore({
     },
   },
   mutations: {
+    setAllProducts(state, payload) {
+      state.allProducts = payload;
+    },
     addToCart(state, payload) {
       state.products.push(payload);
       console.log(state.products);
@@ -39,6 +47,14 @@ export default createStore({
       }
     },
   },
-  actions: {},
+  actions: {
+    async fetchProducts(context) {
+      const res = await axios.get(
+        "https://nelkir-frontend.s3.amazonaws.com/categories_product_food.json"
+      );
+      context.commit("setAllProducts", res);
+      console.log(res)
+    },
+  },
   modules: {},
 });
