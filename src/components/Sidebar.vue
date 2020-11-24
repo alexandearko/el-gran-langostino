@@ -191,6 +191,10 @@ input {
   nav {
     display: flex;
     margin-top: 0;
+    overflow: auto;
   }
+  nav::-webkit-scrollbar {
+  display: none;
+}
 }
 </style>
