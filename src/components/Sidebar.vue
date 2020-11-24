@@ -104,7 +104,7 @@ export default {
 .sidebar {
   width: 100%;
   color: #3e3e3e;
-  height: auto;
+  height: 100vh;
   width: 184px;
   background-color: #fff;
   position: absolute;
@@ -113,6 +113,7 @@ export default {
   z-index: 98;
   padding-top: 45px;
   box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.05);
+  overflow: auto;
 }
 .avatar {
   height: 150px;
